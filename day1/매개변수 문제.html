@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디와 패스워드</title>
+</head>
+<body>
+    <script>
+        /*
+        let rightId = "coco"
+        let rightPw = "1234"
+
+        검사할 아이디와 비번 생성
+
+        login 함수에 매개변수로 사용자가 입력한 아이디와 패스워드 를 받아서
+        만약 아이디가 rigthId와 일치하고, 비밀번호도 rightPw 와 일치하면 로그인 되었습니다 출력
+
+        rigthId 와 매개변수로 받아온 id 값이 다르다면  일치하지 않습니다 출력
+        userId 와 userPw 변수를 생성해서 사용자가 입력하는 아이디와 비밀번호를 받아옴
+        */
+
+        let rightId = "coco"
+        let rightPw = "1234"
+
+        let userId = prompt("아이디를 입력하세요.");
+        let userPw = Number(prompt("비밀번호를 입력하세요."));
+
+        function loginFunction(userId,userPw){
+            if(userId == rightId){
+                if(userPw == rightPw){
+                    document.write("로그인 되었습니다.");
+                } else {
+                    document.write("아이디와 비밀번호 중 일치하지 않습니다.<br>");
+                }
+            } else{
+                document.write("아이디와 비밀번호 중 일치하지 않습니다.");
+            }
+        }
+
+        loginFunction(userId,userPw);
+    </script>
+</body>
+</html>
