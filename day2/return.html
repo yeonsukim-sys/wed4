@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return</title>
+</head>
+<body>
+    <script>
+        function plus(num1,num2){
+           return num1 + num2; 
+           // return 뒤에 나오는 값은 철저히 무시됨 리턴은 코드작성이 다 끝난 후 작성
+        }
+
+        let result= plus(10,20);
+        console.log(result);
+
+        function hello(name){
+            return "안녕," + name + "! 반가워!"
+        }
+        let name = hello("연수");
+        console.log(name)
+    </script>
+</body>
+</html>
