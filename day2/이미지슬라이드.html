@@ -24,6 +24,24 @@
                 num을 감소
     ]
         */
+
+        let imgNum = 1;
+
+        function clickButton(slideimg){
+            if(slideimg){
+                if(imgNum === img_1.length){
+                    return;
+                } //현재 이미지가 마지막이라면
+                imgNum++;
+            }else{
+                if(imgNum === 1){
+                    return;
+                }
+                imgNum--;
+            }
+        }
     </script>
+
+    <div class="img_1"> <img src="./1.jpg" alt=""></div>
 </body>
 </html>
