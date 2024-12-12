@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이미지슬라이드</title>
+    <style>
+        img {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
 </head>
 <body>
+    <div>
+        <p>
+            <img src="./img/1.jpg" alt="" id="photo">
+        </p>
+       <div>
+        <button onclick="clickButton(0)">이전</button>
+        <button onclick="clickButton(1)">다음</button>
+       </div>
+    </div>
     <script>
         /*
         현재 보여지는 이미지 번호를 저장하는 변수를 생성(처음에눈 1)
@@ -29,19 +44,21 @@
 
         function clickButton(slideimg){
             if(slideimg){
-                if(imgNum === img_1.length){
+                if(imgNum === 8){
                     return;
                 } //현재 이미지가 마지막이라면
                 imgNum++;
-            }else{
+            } else{
                 if(imgNum === 1){
                     return;
                 }
                 imgNum--;
             }
+            let imgTag = document.getElementById("photo");
+            imgTag.setAttribute("src","img/img_"+ imgNum + ".jpg");
         }
     </script>
 
-    <div class="img_1"> <img src="./1.jpg" alt=""></div>
+   
 </body>
 </html>
