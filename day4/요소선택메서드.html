@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소선택메서드드</title>
+</head>
+
+<body>
+    <div id="only_one_id">하나뿐인 아이디를 가진 요소</div>
+    <div>
+        <p class="class_text">yap</p>
+        <p class="class_text">yap2</p>
+        <p class="class_text">yap3</p>
+        <p>클래스 없는 p</p>
+    </div>
+    <script>
+        /*
+        1. getElmentById : html의 ID를 사용해서 특정 요소를 가져옴
+        문법 : document.getElementById("아이디");
+        특징 : id는 유일해야해서 , 이 방법으로 가져오면 항상 하나의 요소를선택
+
+        2. getElementByIdClaaName : 클래스 이름으로 요소를 가져옴
+        문법 : document.getElementByIdClaaName("클래스 이름");
+        특징 : 클래스는 여러 요소에 사용할 수 있어서. 이걸 사용하면 요소들의 리스트를
+        가져오게 됨 (html collention) : 실시간으로 클래스 값이 바뀌면 반영이 됨
+
+        3. querySelector : css처럼 선택자를 작성해서 첫번째 요소를 가져옴
+        문법 : document.querySelector("css선택자 id명,class명 ");
+        특징 : css에서 사용하는 방식 그대로(#id , class)등 
+
+        4. querySelectorAll : css처럼 선택자를 작성해서 모든 요소를 가져오는 방법
+        문법 : querySelector("css선택자 id명 , class명");
+        특징 : css선택자에 해당하는 요소들을 NodeList 형태로 가져온다. 
+        => 실시간으로 클래스 값이 바뀌면 반영이 안됨
+
+        5. getElementByTagName : HTML의 태그이름으로 요소를 가져오는 메서드
+        문법 : document.getElementByTagName("태그이름");
+        특징 : <div>태그를 모두 가져오고 싶을떄 사용
+        
+        어떤것을 사용해야 할까?
+        id로 특정 요소 하나를 가져오고 싶을 떄 -> getElementById
+        클래스로 여러개의 요소를 가져오고 싶을 떄 -> getElementByClassName
+        css선택자로 첫번째 것만 가져오고 싶을 때 -> querySelector
+        css선택자로 모든 요소를 가져오고 싶을 떄 -> querySelectorAll
+        
+        const : 변하지 않는 상수 only one
+        let (변수) : 값이 바뀔수 있음 을 미리 알려줌
+        */
+
+    // getElement
+        const onlyOneId = document.getElementById("only_one_id");
+        console.log(onlyOneId);
+        
+    // getElementByIdClaaName
+    const class_text = getElementByIdClaaName("class_text");
+    console.log(class_text);
+    console.log(class_text[3]);
+
+    // querySelector 외우는게 좋음 중요!
+    const queryId = document.querySelector("only_one_id");
+    console.log(queryId);
+    const queryClass = document.querySelector("only_one_id");
+    console.log(queryClass);
+
+    // querySelectorAll
+    const queryAllClass = document.querySelectorAll(".class_text");
+    console.log(queryAllClass);
+    const querythree = queryAllClass[3];
+    queryAllClass.forEach((Element) => {
+        console.log(Element);
+    })
+
+    // getElementByTagName
+    const allp = document.getElementByTagName("")
+    </script>
+</body>
+
+</html>
