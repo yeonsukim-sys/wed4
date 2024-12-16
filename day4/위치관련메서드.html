@@ -46,6 +46,7 @@
             얄리얄라얄라숑
          </div>
          <button onclick="showHeigth()">높이정보</button>
+
          <button>너비정보</button>
          
          <!-- getBoundingClientRect -->
@@ -116,6 +117,11 @@
                 scrollHeight : ${box.scrollHeight}px`
             )
         }
+
+        //getBoundingClientRect
+        const targetElement = document.getElementById(`target`);
+
+        const target = targetElement.getBoundingClientRect();
     </script>
 </body>
 </html>
