@@ -10,6 +10,9 @@
      <button onclick="showWindowSize()">브라우저 크기보기</button>
      <p id="window_size"></p>
 
+
+    <hr>
+
      <!-- innerHTML -->
       <div id="content">
         <p>이 내용이 바뀔거에요</p>
@@ -47,7 +50,7 @@
          </div>
          <button onclick="showHeigth()">높이정보</button>
 
-         <button>너비정보</button>
+         <button onclick="showWidth()">너비정보</button>
          
          <!-- getBoundingClientRect -->
     <div 
@@ -115,13 +118,22 @@
                 `offsetHeight : ${box.offsetHeight}px <br>
                 clientHeight : ${box.clientHeight}px 
                 scrollHeight : ${box.scrollHeight}px`
-            )
+            );
         }
 
         //getBoundingClientRect
-        const targetElement = document.getElementById(`target`);
+        function showRect(){
+            const box = document.getElementById(`target`);
+            const rect = box.getBoundingClientRect();
+            alert(`위치 : ${rect.x}, y: ${rect} \n
+            크기 : (width:${rect.width})px, height: ${rect.height}px 
+            \n위치 : top: ${rect.top}, y: ${rect.left}`);
 
-        const target = targetElement.getBoundingClientRect();
+        }
+        
+        // const targetElement = document.getElementById(`target`);
+
+        // const target = targetElement.getBoundingClientRect();
     </script>
 </body>
 </html>
