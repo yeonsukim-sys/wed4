@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 헤더색상변경</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+            background-color: rgb(255, 255, 255);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: black;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            transition: 0.5s;
+            
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .logo {
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .food_menu > ul {
+            display: flex;
+        }
+
+        .food_menu > ul > li {
+            margin: 14px;
+        }
+
+        .sign_up > button {
+            text-decoration: none;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #fff;
+            display: inline-block;
+            text-align: center;
+            color: black;
+            
+        }
+
+        .header_active {
+            background: rgb(29, 24, 100);
+        }
+
+        .header_scroll_color {
+            background-color: rgb(0, 0, 0);
+        }
+
+        .sign_up > .header_button_color {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <h1 class="change_color">비비고</h1>
+        </div>
+
+        <nav class="food_menu">
+            <ul id="menu">
+                <li class="change_color">한식</li>
+                <li class="change_color">중식</li>
+                <li class="change_color">일식</li>
+                <li class="change_color">양식</li>
+            </ul>
+        </nav>
+
+        <div class="sign_up">
+            <button>로그인</button>
+            <button>회원가입</button>
+        </div>
+    </header>
+    <script>
+        const header = document.getElementById("header");
+        let headerHeight = header.offsetHeight;
+        console.log(headerHeight);
+        
+        const headerColorChange = document.querySelectorAll(".change_color");
+
+        const buttons = document.querySelectorAll(".sign_up button");
+
+        window.addEventListener("scroll",(e)=>{
+            let scrollHeight = window.scrollY;
+            if(scrollHeight < headerHeight){
+                header.classList.add("header_active");
+                headerColorChange.forEach((Element) => {
+                    element.classList.add("header_scroll_color");
+                });
+                buttons.forEach((element)=>{
+                    element.classList.add("header_button_color");
+                })
+            }else {
+                header.classList.remove("header_active");
+                headerColorChange.forEach((Element) => {
+                    element.classList.remove("header_scroll_color");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

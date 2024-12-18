@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤더페이드인인</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 5000px;
+        }
+
+        header {
+            height: 50px;
+            background-color: darkred;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: 0.5s;
+        }
+
+        .lorem {
+            margin-top: 80px;
+        }
+
+        #header.hide{
+            transform: translateY(100%);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+
+    </header>
+
+    <section class="lorem">
+        <p>
+            nomal mark up Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Quaerat quibusdam quod reprehenderit. 
+            Debitis eius dolores nihil labore tempore repellendus 
+            nostrum eligendi 
+            quibusdam eaque quas eveniet iusto, 
+            voluptatum, deleniti dolore quasi.
+        </p>
+    </section>
+
+    <script>
+        const header = document.querySelector("#header");
+
+        let posY = 0; //스크롤 위치값을 넣을 변수 생성
+
+        window.addEventListener("scroll",(e) => {
+            if(posY < window.scrollY){
+                headerHide()
+            }else{
+                headerShow()
+            }
+            posY = window.scrollY;
+        });
+
+        function headerHide(){
+            header.classList.add("hide");
+        }
+
+        function headerShow(){
+            header.classList.remove("hide");
+        }
+    </script>
+</body>
+</html>
