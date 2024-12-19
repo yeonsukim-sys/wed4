@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 패이드인</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        .content_container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .content {
+            font-size: 50px;
+            text-align: center;
+            margin: 600px 0;
+        }
+
+        .fade {
+            /* opacity: 0; */
+            transition: 1s;
+
+        }
+
+        .to_top {
+            transform: translateY(-200px);
+        }
+
+        .to_bottom {
+            transform: translateY(200px);
+        }
+
+        .to_left {
+            transform: translateX(-200px);
+        }
+
+        .to_right {
+            transform: translateX(200px);
+        }
+
+        .to_right_bottom {
+            transform: translate(200px 200px);
+        }
+
+        .in {
+            transform: none;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="content_container">
+        <h2 class="content fade to_top">준비가 완료된</h2>
+        <h2 class="content fade to_bottom">신입 입니다</h2>
+        <h2 class="content fade to_left">고양이를 좋아하죠</h2>
+        <h2 class="content fade to_right"> 감사합니다</h2>
+        <h2 class="content fade to_right_bottom"> bye bye</h2>
+    </div>
+
+    <script>
+        const content = document.getElementsByClassName("content");
+        window.addEventListener("scroll",() => {
+            const winH = window.innerHeight;
+            
+            for(let i = 0; i < content.length; i++){
+                const conetentTop = content[i].getBoundingClientRect().top;
+                if(conetentTop - winH < 0){
+                    content[i].classList.add("in");
+                }else{
+                    content[i].classList.remove("in");
+                }
+            }
+        })
+    </script>
+</body>
+</html>
