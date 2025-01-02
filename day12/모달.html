@@ -6,7 +6,7 @@
     <title>모달창 열기기</title>
     <style>
         .modal {
-            /* display: none; */
+            display: none;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -19,7 +19,7 @@
         }
 
         .overlay {
-            /* display: none; */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -34,9 +34,47 @@
         모달창이 열렸습니다
     </button>
     <div class="overlay" id="overlay"></div>
+
     <div id="modal" class="modal">
         <p>모달창이 열렸습니다</p>
         <button id="close_modal">모달을  닫습니다</button>
     </div>
+
+    <script>
+        const openModal = document.getElementById('open_modal');
+        const overlay = document.getElementById('overlay');
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('close_modal');
+
+        openModal.addEventListener('click',function(){
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        // closeModal.addEventListener('click',function(){
+        //     modal.style.display = 'none';
+        //     overlay.style.display = 'none';
+        // });
+
+        function closeModalFunction(){
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        
+        closeModal.addEventListener('click',function(){
+            closeModalFunction();
+        });
+
+        document.addEventListener('keydown',function(){
+            if(event.key === 'Escape'){
+                closeModalFunction();
+            }
+        });
+
+        overlay.addEventListener('click',function(){
+            closeModalFunction();
+        });
+
+    </script>
 </body>
 </html>

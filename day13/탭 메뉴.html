@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tap-menu</title>
+    <style>
+        .tab_section {
+            position: relative;
+            margin: 50px;
+        }
+
+        ul {
+            display: flex;
+            margin: 0;
+            padding:0;
+        }
+
+        .tab {
+            width: 80px;
+            list-style: none;
+            height: 35px;
+            background: skyblue;
+            font-size: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            line-height: 35px;
+            border-radius: 20px 20px 0 0;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background-color: rgb(176, 233, 255);
+            color: rgb(92, 92, 255);
+        }
+
+        .tab_content {
+            display: none;
+            position: absolute;
+            background-color: rgb(176, 233, 255);
+            top: 55px;
+            padding: 16px;
+            left: 0;
+            border-radius: 0 16px 16px 16px;
+            
+        }
+
+        .tab_content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <section class="tab_section">
+         <ul>
+            <li class="tab active" data-tab="1">tab1</li>
+            <li class="tab" data-tab="2">tab2</li>
+            <li class="tab" data-tab="3">tab3</li>
+            <!-- 데이터 속성(data attribute) : data-* 형식으로 작성할 수 있다.
+             (* 부분에는 사용자가 원하는 이름을 자유롭게 지칭하면 된다.) 데이터 속성운
+             대부분 자바스크립트에서 다루기 위해 사용됨 -->
+         </ul>
+
+         <div id="tab_1" class="tab_content active">
+            <p> 
+                첫번째 탭 입니다.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Aperiam, quod non dolorem alias
+                a animi repellendus aut rem unde 
+                nemo reprehenderit 
+                debitis perspiciatis vero incidunt quisquam culpa mollitia voluptas ipsam?
+            </p>
+         </div>
+
+         <div id="tab_2" class="tab_content">
+            <p>
+                두번째 탭 입니다.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Aperiam, quod non dolorem alias
+                a animi repellendus aut rem unde 
+                nemo reprehenderit 
+                debitis perspiciatis vero incidunt quisquam culpa mollitia voluptas ipsam?
+            </p>
+         </div>
+
+         <div id="tab_3" class="tab_content">
+            <p>
+                세번째 탭 입니다.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Aperiam, quod non dolorem alias
+                a animi repellendus aut rem unde 
+                nemo reprehenderit 
+                debitis perspiciatis vero incidunt quisquam culpa mollitia voluptas ipsam?
+            </p>
+         </div>
+
+         <script>
+            const tabs = document.querySelectorAll('.tab');
+            const tabContent = document.querySelectorAll('.tab_content');
+
+            tabs.forEach(tab =>{
+                // forEach((item,index,array) => {
+                // item : 현재 순회중인 배열의 요소(필수!, 작명은 자유)
+                // index : 현재 요소의 인덱스(선택)
+                // array : 현재 순회중인 배열 자체(선택)
+                // });
+                tab.addEventListener('click',() => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContent.forEach(tc => tc.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById('tab_' + tab.dataset.tab).classList.add('active');
+                    // dataset : HTML 요소의 data-* 속성을 읽거나 설정할 수 있는 js객체
+                    // tab.dataset : 요소의 모든  data-tab을 번호를 가져옴
+                    console.log(tab.dataset);
+                });
+            }); 
+         </script>
+    </section>
+</body>
+</html>

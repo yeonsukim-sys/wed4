@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typingText</title>
+    <style>
+        body {
+            background: #101291;
+        }
+
+        #typing {
+            font-size: 70px;
+            font-weight: 800;
+            color: rgb(255, 77, 45);
+            white-space:nowrap;
+            margin:0 auto ;
+            width: fit-content;
+            transform: translateY(350px);
+        }
+    </style>
+</head>
+<body>
+    <div id="typing"></div>
+
+    <script>
+        const texts = [
+            "WELCOME TO MY PORTFOLIO!",
+            "저의 포트폴리오에 오신 것을 환영합니다다",
+            "저의 추구미와 디자인",
+            "Enjoy MY Portfolio",
+        ]
+        let textIndex = 0; // 현재 타이핑 중인 문장의 순서를 저장
+        let charIndex = 0; // 문장 내에서 현재 타이핑중인 글자의 순서를 저장
+
+        const typingComponent = document.getElementById("typing");
+        const typing = () => {
+            if(typingIndex < texts[textIndex].length){
+               typingComponent.textContent += texts[textIndex][charIndex];
+               charIndex++;
+               
+            }else {
+
+            }
+        };
+    </script>
+</body>
+</html>
