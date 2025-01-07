@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팔로우커서 </title>
+    <style>
+        .cursor {
+            width: 15px;
+            height: 15px;
+            background-color: aqua;
+            border-radius: 50%;
+            transition: 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <script>
+        const cursor = document.querySelector(".cursor");
+
+        document.addEventListener("mousemove",(e) => {
+            cursor.style.transform = `translate(${e.pageX}px, ${e.pageY}px)`;
+            console.log(`x : ${e.pageX}`);
+            console.log(`x : ${e.pageY}`);
+        });
+
+        document.addEventListener("mousedown", () => {
+            cursor.style.transform = `scale(1.5)`;
+        });
+
+        document.addEventListener("mouseup", () => {
+            cursor.style.transform = cursor.style.transform.replace("scale(1.5)","");
+            // replace("제기할 값","새로 넣을 값") : 문자열에서 특징 부분을 찾아 다른 문자열로 대체하는 메서드
+            
+        });
+    </script>
+</body>
+</html>
