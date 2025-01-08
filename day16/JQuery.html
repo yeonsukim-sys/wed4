@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리리</title>
+</head>
+
+<body>
+    <h1>jquery test</h1>
+    <button id="test_button">눌러보세요</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <div class="auto_play">
+        <div><img src="" alt="">1</div>
+        <div><img src="" alt="">2</div>
+        <div><img src="" alt="">3</div>
+        <div><img src="" alt="">4</div>
+        <div><img src="" alt="">5</div>
+        <div><img src="" alt="">6</div>
+    </div>
+
+    <script>
+        $('.autoplay').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+    </script>
+</body>
+
+</html>

@@ -163,8 +163,37 @@
                 //Math.max : 최대값을 반환하는 함수
                 
             }
+            sections[currentSectionIndex].scrollIntoView({
+                behavior:"smooth",
+                block: "start",
+            });
+            upedateMenu()
+            setTimeout(() => (isScrolling = false),800);
         }
 
+        // ===========================
+        // 초기화 함수
+        function initFullPageScroll(){
+            sections.forEach((section,index) => {
+                const rect = section.getBoundingClientRect();//섹션의 화면정보
+                if(rect.top >= 0 && rect.top < window.innerHeight){
+                    currentSectionIndex = index;
+                }
+            });
+            isScrolling = false;
+            if(window.innerWidth > breakPoint && !isFullpageScrollActive) {
+                isFullpageScrollActive = true; //풀페이지 활성화화
+                document.body.style.overflow = "hidden";
+                window.addEventListener("wheel",handleScroll);
+            } else if(window.innerWidth <= breakPoint && isFullpageScrollActive){
+                isFullpageScrollActive = false; // 풀페이지 비활성화
+                document.body.style.overflow = "auto";
+                window.removeEventListener("wheel", handleScroll);
+            }
+        }
+
+        window.addEventListener("resize",initFullPageScroll);
+        initFullPageScroll();
     </script>
 </body>
 </html>
